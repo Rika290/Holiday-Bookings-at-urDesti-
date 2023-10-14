@@ -21,7 +21,7 @@ elif(choice=='Places'):
         if(ch=='Home'):
             st.image("https://www.rajasthantourplanner.com/blog/wp-content/uploads/2017/05/cultural-north-india.jpg")        
         elif(ch=="View places"):
-            mydb=mysql.connector.connect(host="127.0.0.1",port=8501,user="root",password="abcde123",database="Destination")
+            mydb=mysql.connector.connect(host="127.0.0.1",port=3306,user="root",password="abcde123",database="Destination")
             c=mydb.cursor()
             c.execute("select * from North")
             f=[]
@@ -45,7 +45,7 @@ elif(choice=='Places'):
                             st.header('Please try again')
             if(st.session_state['Enter']):
                 st.header('Book your place')
-                mydb=mysql.connector.connect(host="127.0.0.1",port=8501,user="root",password="abcde123",database="Destination")
+                mydb=mysql.connector.connect(host="127.0.0.1",port=3306,user="root",password="abcde123",database="Destination")
                 c=mydb.cursor()
                 c.execute("select ID,Places from North")
                 f=[]
@@ -62,7 +62,7 @@ elif(choice=='Places'):
                 five=str(datetime.datetime.now())
                 bty=st.button("Book")
                 if bty:
-                    mydb=mysql.connector.connect(host="127.0.0.1",port=8501,user="root",password="abcde123",database="Destination")
+                    mydb=mysql.connector.connect(host="127.0.0.1",port=3306,user="root",password="abcde123",database="Destination")
                     c=mydb.cursor()
                     c.execute("insert into Booking values(%s,%s,%s,%s,%s,%s,%s)",(one,two,two1,three,fr,frs,five))
                     mydb.commit()                    
@@ -73,7 +73,7 @@ elif(choice=='Places'):
         if(ch=='Home'):
             st.image('https://www.sikhheros.com/wp-content/uploads/2022/12/Best-Places-to-Visit-in-South-India-This-December.png')        
         elif(ch=="View places"):
-            mydb=mysql.connector.connect(host="127.0.0.1",port=8501,user="root",password="abcde123",database="Destination")
+            mydb=mysql.connector.connect(host="127.0.0.1",port=3306,user="root",password="abcde123",database="Destination")
             c=mydb.cursor()
             c.execute("select * from South")
             f=[]
@@ -96,7 +96,7 @@ elif(choice=='Places'):
                             st.header('Please try again')
             if(st.session_state['Enter']):
                 st.header('Book your place')
-                mydb=mysql.connector.connect(host="127.0.0.1",port=8501,user="root",password="abcde123",database="Destination")
+                mydb=mysql.connector.connect(host="127.0.0.1",port=3306,user="root",password="abcde123",database="Destination")
                 c=mydb.cursor()
                 c.execute("select ID,Places from South")
                 f=[]
@@ -113,7 +113,7 @@ elif(choice=='Places'):
                 five=str(datetime.datetime.now())
                 bty=st.button("Book")
                 if bty:
-                    mydb=mysql.connector.connect(host="127.0.0.1",port=8501,user="root",password="abcde123",database="Destination")
+                    mydb=mysql.connector.connect(host="127.0.0.1",port=3306,user="root",password="abcde123",database="Destination")
                     c=mydb.cursor()
                     c.execute("insert into Booking values(%s,%s,%s,%s,%s,%s,%s)",(one,two,two1,three,fr,frs,five))
                     mydb.commit()                    
@@ -125,7 +125,7 @@ elif(choice=='Hotels'):
         st.text('We provide you a list of hotels which are rated as 3 and above. \nBook fast and enjoy your vacation😊')
         st.image('https://media.istockphoto.com/id/456859205/photo/multiple-photographs-of-vacation-scenes.jpg?s=612x612&w=0&k=20&c=fX2gODiFol1sbYDwPJ5LqC_QeABp2ibs8I4DQp0q8Lo=')
     elif(ch=='North'):
-        mydb=mysql.connector.connect(host="127.0.0.1",port=8501,user="root",password="abcde123",database="Destination")
+        mydb=mysql.connector.connect(host="127.0.0.1",port=3306,user="root",password="abcde123",database="Destination")
         c=mydb.cursor()
         c.execute("select distinct(places) from north order by (1)")
         f=[]
@@ -136,7 +136,7 @@ elif(choice=='Hotels'):
         hot=st.text_input('You can choose your hotel/resort')
         ht=st.button('Check')
         if ht:
-            db=mysql.connector.connect(host="127.0.0.1",port=8501,user="root",password="abcde123",database="Destination")
+            db=mysql.connector.connect(host="127.0.0.1",port=3306,user="root",password="abcde123",database="Destination")
             m=db.cursor()
             m.execute("select * from hotels where places= %s",(hot,))
             g=[]
@@ -152,7 +152,7 @@ elif(choice=='Hotels'):
                 st.dataframe(di)
                 st.header("🥳 \n Kindly visit their websites for booking and other details")
     else:
-        mydb=mysql.connector.connect(host="127.0.0.1",port=8501,user="root",password="abcde123",database="Destination")
+        mydb=mysql.connector.connect(host="127.0.0.1",port=3306,user="root",password="abcde123",database="Destination")
         c=mydb.cursor()
         c.execute("select distinct(places) from south order by (1)")
         f=[]
@@ -163,7 +163,7 @@ elif(choice=='Hotels'):
         hot=st.text_input('You can choose your hotel/resort')
         ht=st.button('Check')
         if ht:
-            db=mysql.connector.connect(host="127.0.0.1",port=8501,user="root",password="abcde123",database="Destination")
+            db=mysql.connector.connect(host="127.0.0.1",port=3306,user="root",password="abcde123",database="Destination")
             m=db.cursor()
             m.execute("select * from hotels where places= %s",(hot,))
             g=[]
